@@ -61,12 +61,23 @@ for (const file of textFiles) {
 }
 
 const html = await readFile(path.join(publicRoot, "index.html"), "utf8");
+const css = await readFile(path.join(publicRoot, "styles.css"), "utf8");
 const references = [...html.matchAll(/(?:src|href|srcset)="\.\/([^"#?]+)"/g)]
   .map((match) => match[1])
   .filter((reference) => !reference.endsWith("/"));
 
 for (const reference of new Set(references)) {
   await access(path.join(publicRoot, reference));
+}
+
+if (
+  !/\.showcase-preview img\s*\{[^}]*height:\s*auto;/s.test(css) ||
+  /height:\s*(?:min\(46vw,\s*380px\)|438px);/.test(css) ||
+  !/\.showcase-selector img\s*\{[^}]*object-fit:\s*contain;/s.test(css)
+) {
+  throw new Error(
+    "Capturas da vitrine devem permanecer inteiras no painel e nas miniaturas."
+  );
 }
 
 const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";

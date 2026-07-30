@@ -113,6 +113,17 @@ if (
   throw new Error("O site não deve expor um link direto para seu repositório.");
 }
 
+const linkedInUrl = "https://www.linkedin.com/in/rodrigochiste/";
+const linkedInLinks = [...html.matchAll(
+  /<a\b(?=[^>]*href="https:\/\/www\.linkedin\.com\/in\/rodrigochiste\/")[^>]*>LinkedIn<\/a>/g
+)];
+if (
+  linkedInLinks.length !== 1 ||
+  !linkedInLinks[0][0].includes('rel="me noopener"')
+) {
+  throw new Error("O rodapé deve conter o LinkedIn oficial do autor.");
+}
+
 const contributionLinks = [...html.matchAll(
   /<a\b(?=[^>]*\bdata-contribution-(?:link|qr)\b)[^>]*>/g
 )].map((match) => match[0]);

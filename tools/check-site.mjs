@@ -70,7 +70,7 @@ for (const reference of new Set(references)) {
 }
 
 const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";
-const currentAppVersion = "1.0.0";
+const currentAppVersion = "1.0.1";
 // Integração temporária: ao trocar a conta Stripe, atualizar este contrato,
 // os dois hrefs em public/index.html e o QR Code público na mesma entrega.
 const temporaryContributionUrl =
@@ -103,6 +103,14 @@ if (
   !html.includes(`<small>Versão ${currentAppVersion}</small>`)
 ) {
   throw new Error("O CTA do cabeçalho não informa a versão atual.");
+}
+
+if (
+  html.includes("Ver documentação do site") ||
+  html.includes("Repositório do site") ||
+  html.includes('href="https://github.com/Rodrigodil/backuphub"')
+) {
+  throw new Error("O site não deve expor um link direto para seu repositório.");
 }
 
 const contributionLinks = [...html.matchAll(

@@ -1,0 +1,16 @@
+{
+  "name": "backuphub-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page estática do BackupHub",
+  "type": "module",
+  "scripts": {
+    "assets": "node tools/process-assets.mjs",
+    "check": "html-validate public/index.html public/404.html && node tools/check-site.mjs && node tools/check-docs.mjs",
+    "dev": "node tools/dev-server.mjs"
+  },
+  "devDependencies": {
+    "html-validate": "11.6.0",
+    "sharp": "0.35.3"
+  }
+}

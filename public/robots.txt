@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rodrigodil.github.io/backuphub/sitemap.xml
+

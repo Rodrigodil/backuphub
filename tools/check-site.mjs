@@ -1,0 +1,79 @@
+import { access, readFile, readdir, stat } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const publicRoot = path.join(root, "public");
+const requiredFiles = [
+  "index.html",
+  "404.html",
+  "styles.css",
+  "script.js",
+  "robots.txt",
+  "sitemap.xml",
+  "assets/backuphub.ico",
+  "assets/favicon-32.png",
+  "assets/icon-96.png",
+  "assets/icon-180.png",
+  "assets/og-backuphub.png"
+];
+const forbiddenTerms = [
+  "Projetos-Workspace",
+  "Sistemas-KS",
+  "Meu Drive",
+  "mariadb-local-ks",
+  "MariaDB local KS"
+];
+
+for (const file of requiredFiles) {
+  await access(path.join(publicRoot, file));
+}
+
+async function walk(directory) {
+  const entries = await readdir(directory);
+  const files = [];
+
+  for (const entry of entries) {
+    const absolute = path.join(directory, entry);
+    const metadata = await stat(absolute);
+    if (metadata.isDirectory()) {
+      files.push(...(await walk(absolute)));
+    } else {
+      files.push(absolute);
+    }
+  }
+
+  return files;
+}
+
+const publicFiles = await walk(publicRoot);
+const textFiles = publicFiles.filter((file) =>
+  [".html", ".css", ".js", ".txt", ".xml", ".json"].includes(path.extname(file))
+);
+
+for (const file of textFiles) {
+  const content = await readFile(file, "utf8");
+  for (const term of forbiddenTerms) {
+    if (content.includes(term)) {
+      throw new Error(`Conteúdo interno encontrado em ${path.relative(root, file)}.`);
+    }
+  }
+}
+
+const html = await readFile(path.join(publicRoot, "index.html"), "utf8");
+const references = [...html.matchAll(/(?:src|href|srcset)="\.\/([^"#?]+)"/g)]
+  .map((match) => match[1])
+  .filter((reference) => !reference.endsWith("/"));
+
+for (const reference of new Set(references)) {
+  await access(path.join(publicRoot, reference));
+}
+
+if (!html.includes('disabled')) {
+  throw new Error("Os estados desabilitados de download e contribuição não foram encontrados.");
+}
+
+console.log(
+  `Site validado: ${publicFiles.length} arquivos públicos e ${new Set(references).size} referências locais.`
+);
+

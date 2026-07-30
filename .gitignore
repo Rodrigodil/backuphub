@@ -1,0 +1,10 @@
+# Ativos-fonte locais. Contêm arquivos grandes e capturas ainda não sanitizadas.
+/Logo-icone/
+/Screenshots/
+/node_modules/
+
+# Arquivos locais de sistema e editor.
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

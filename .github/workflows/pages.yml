@@ -1,0 +1,67 @@
+name: Publicar site no GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Validar e publicar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Validar site e documentação
+        run: npm run check
+
+      - name: Validar arquivos públicos
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f public/index.html
+          test -f public/404.html
+          test -f public/styles.css
+          test -f public/script.js
+          test -f public/robots.txt
+          test -f public/sitemap.xml
+          if grep -RInE 'Projetos-Workspace|Sistemas-KS|Meu Drive|mariadb-local-ks|MariaDB local KS|Aplicativo-Backup|RodrigoTI|C:\\Users' public docs README.md AGENTS.md; then
+            echo "Conteúdo interno encontrado nos arquivos públicos."
+            exit 1
+          fi
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4

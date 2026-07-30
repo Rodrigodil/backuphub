@@ -71,6 +71,10 @@ for (const reference of new Set(references)) {
 
 const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";
 const currentAppVersion = "1.0.0";
+// Integração temporária: ao trocar a conta Stripe, atualizar este contrato,
+// os dois hrefs em public/index.html e o QR Code público na mesma entrega.
+const temporaryContributionUrl =
+  "https://donate.stripe.com/28E5kD8OH7fV6dW7I6cEw00";
 const downloadLinks = [...html.matchAll(
   /<a\b(?=[^>]*\bdata-download-link\b)[^>]*>/g
 )].map((match) => match[0]);
@@ -101,11 +105,31 @@ if (
   throw new Error("O CTA do cabeçalho não informa a versão atual.");
 }
 
+const contributionLinks = [...html.matchAll(
+  /<a\b(?=[^>]*\bdata-contribution-(?:link|qr)\b)[^>]*>/g
+)].map((match) => match[0]);
+if (contributionLinks.length !== 2) {
+  throw new Error("Devem existir o CTA e o QR Code de apoio.");
+}
+for (const link of contributionLinks) {
+  if (
+    !link.includes(`href="${temporaryContributionUrl}"`) ||
+    !link.includes('target="_blank"') ||
+    !link.includes('rel="noopener noreferrer external"') ||
+    !link.includes('referrerpolicy="no-referrer"')
+  ) {
+    throw new Error("Link de apoio fora do contrato temporário aprovado.");
+  }
+}
+
 if (
-  !html.includes("data-contribution") ||
-  !/<button\b(?=[^>]*\bdata-contribution\b)(?=[^>]*\bdisabled\b)/.test(html)
+  html.includes("js.stripe.com") ||
+  html.includes("<stripe-buy-button") ||
+  html.includes("publishable-key") ||
+  html.includes("pk_live_") ||
+  html.includes("sk_live_")
 ) {
-  throw new Error("O CTA de contribuição deve permanecer desabilitado.");
+  throw new Error("A página pública não deve incorporar Stripe.js ou chaves.");
 }
 
 console.log(

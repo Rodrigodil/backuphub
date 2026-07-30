@@ -578,30 +578,77 @@
 
       <section class="section support-section" id="apoie" aria-labelledby="support-title">
         <div class="container support-card">
-          <div class="support-icon" aria-hidden="true">
-            <img src="./assets/icon-96.png" width="72" height="72" alt="">
+          <div class="support-content">
+            <div class="support-heading">
+              <div class="support-icon" aria-hidden="true">
+                <img src="./assets/icon-96.png" width="64" height="64" alt="">
+              </div>
+              <div>
+                <p class="section-kicker">Projeto independente</p>
+                <span class="support-platform">Pagamento pela Stripe</span>
+              </div>
+            </div>
+
+            <div class="support-copy">
+              <h2 id="support-title">Ajude o BackupHub a continuar evoluindo</h2>
+              <p>
+                Seu apoio contribui com testes, documentação, manutenção e
+                novas versões do projeto.
+              </p>
+            </div>
+
+            <ul class="support-benefits" aria-label="Áreas apoiadas">
+              <li>Testes e qualidade</li>
+              <li>Documentação</li>
+              <li>Novas versões</li>
+            </ul>
+
+            <div class="support-action">
+              <a
+                class="button button-support"
+                href="https://donate.stripe.com/28E5kD8OH7fV6dW7I6cEw00"
+                target="_blank"
+                rel="noopener noreferrer external"
+                referrerpolicy="no-referrer"
+                data-contribution-link
+                aria-label="Apoiar o BackupHub pela Stripe"
+              >
+                <span class="support-button-copy">
+                  <strong>Apoiar pela Stripe</strong>
+                  <small>Ambiente externo de pagamento</small>
+                </span>
+                <span class="support-button-arrow" aria-hidden="true">↗</span>
+              </a>
+              <p>
+                O pagamento é processado externamente pela Stripe. O BackupHub
+                não recebe nem armazena dados do cartão.
+              </p>
+            </div>
           </div>
-          <div class="support-copy">
-            <p class="section-kicker">Projeto independente</p>
-            <h2 id="support-title">Ajude o BackupHub a continuar evoluindo</h2>
-            <p>
-              Futuras contribuições poderão apoiar testes, documentação,
-              manutenção e novas versões. A plataforma de apoio ainda será
-              definida e validada antes da ativação.
-            </p>
-          </div>
-          <div class="support-action">
-            <button
-              class="button button-support"
-              type="button"
-              disabled
-              data-contribution
+
+          <figure class="support-qr">
+            <a
+              href="https://donate.stripe.com/28E5kD8OH7fV6dW7I6cEw00"
+              target="_blank"
+              rel="noopener noreferrer external"
+              referrerpolicy="no-referrer"
+              data-contribution-qr
+              aria-label="Abrir página de apoio ao BackupHub pela Stripe"
             >
-              Contribuições
-              <small>Em breve</small>
-            </button>
-            <p>Nenhum dado financeiro é coletado neste site.</p>
-          </div>
+              <img
+                src="./assets/support/stripe-qr-temporario.png"
+                width="220"
+                height="264"
+                loading="lazy"
+                decoding="async"
+                alt="QR Code para abrir a página de apoio ao BackupHub na Stripe"
+              >
+            </a>
+            <figcaption>
+              <strong>Escaneie para apoiar</strong>
+              <span>No computador, aponte a câmera do celular.</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
     </main>
@@ -633,7 +680,7 @@
 
       <div class="container footer-bottom">
         <p>© 2026 BackupHub. Todos os direitos reservados.</p>
-        <p>Sem cookies, rastreamento ou coleta de dados.</p>
+        <p>O site não coleta dados. Apoios são processados externamente pela Stripe.</p>
       </div>
     </footer>
 

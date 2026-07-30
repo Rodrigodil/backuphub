@@ -1146,57 +1146,198 @@ p {
 
 .support-card {
   display: grid;
-  gap: 24px;
-  padding: 28px;
+  gap: 30px;
+  padding: 24px;
+  overflow: hidden;
   border: 1px solid #cfe2fa;
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 100% 0%, rgb(42 140 255 / 10%), transparent 36%),
+    radial-gradient(circle at 100% 0%, rgb(99 91 255 / 12%), transparent 38%),
+    radial-gradient(circle at 0% 100%, rgb(42 201 115 / 7%), transparent 34%),
     #fff;
   box-shadow: var(--shadow-sm);
 }
 
+.support-content {
+  display: grid;
+  align-content: center;
+  gap: 22px;
+}
+
+.support-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .support-icon {
   display: grid;
-  width: 88px;
-  height: 88px;
+  width: 72px;
+  height: 72px;
+  flex: 0 0 72px;
   place-items: center;
   border: 1px solid var(--line);
-  border-radius: 21px;
+  border-radius: 19px;
   background: var(--surface-soft);
 }
 
 .support-icon img {
-  border-radius: 15px;
+  border-radius: 14px;
+}
+
+.support-heading .section-kicker {
+  margin-bottom: 7px;
+}
+
+.support-platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #4b45c6;
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.support-platform::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 4px rgb(42 201 115 / 12%);
+  content: "";
 }
 
 .support-copy h2 {
+  margin-bottom: 14px;
   font-size: clamp(1.8rem, 7vw, 2.75rem);
 }
 
+.support-copy p {
+  margin: 0;
+  color: var(--ink-600);
+  font-size: 1rem;
+}
+
+.support-benefits {
+  display: flex;
+  margin: -4px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.support-benefits li {
+  padding: 7px 10px;
+  border: 1px solid #d7e4f5;
+  border-radius: 999px;
+  color: #385170;
+  background: #f7faff;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
 .support-action {
-  align-self: center;
+  max-width: 440px;
 }
 
 .button-support {
   width: 100%;
   min-height: 64px;
-  flex-direction: column;
-  gap: 2px;
+  padding: 10px 12px 10px 18px;
+  justify-content: space-between;
+  gap: 14px;
   color: #fff;
-  background: var(--navy-800);
+  border-color: rgb(255 255 255 / 14%);
+  background: linear-gradient(135deg, #635bff, #5147db 62%, #342d9e);
+  box-shadow: 0 15px 30px rgb(82 72 218 / 24%);
 }
 
-.button-support:disabled {
-  cursor: not-allowed;
-  opacity: 0.72;
+.button-support:hover {
+  box-shadow: 0 18px 36px rgb(82 72 218 / 32%);
+}
+
+.support-button-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.support-button-copy strong {
+  font-size: 0.94rem;
+}
+
+.support-button-copy small {
+  color: rgb(255 255 255 / 76%);
+  font-size: 0.67rem;
+  font-weight: 650;
+  letter-spacing: 0.025em;
+  text-transform: none;
+}
+
+.support-button-arrow {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 11%);
+  font-size: 1.05rem;
+  font-weight: 800;
 }
 
 .support-action p {
-  margin: 10px 0 0;
+  margin: 12px 4px 0;
   color: var(--ink-600);
-  font-size: 0.76rem;
+  font-size: 0.73rem;
+  line-height: 1.55;
+}
+
+.support-qr {
+  width: min(100%, 276px);
+  margin: 0 auto;
+  padding: 14px;
+  border: 1px solid #d9e2f2;
+  border-radius: 22px;
+  background: rgb(255 255 255 / 82%);
+  box-shadow: 0 18px 40px rgb(28 52 89 / 10%);
   text-align: center;
+}
+
+.support-qr a {
+  display: block;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.support-qr a:focus-visible {
+  outline-offset: 5px;
+}
+
+.support-qr img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.support-qr figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 12px 4px 2px;
+}
+
+.support-qr figcaption strong {
+  color: var(--ink-900);
+  font-size: 0.82rem;
+}
+
+.support-qr figcaption span {
+  color: var(--ink-600);
+  font-size: 0.69rem;
 }
 
 .site-footer {
@@ -1437,13 +1578,13 @@ p {
   }
 
   .support-card {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) 220px;
+    align-items: center;
     padding: 38px;
   }
 
-  .support-action {
-    grid-column: 2;
-    max-width: 270px;
+  .support-qr {
+    width: 100%;
   }
 }
 
@@ -1534,13 +1675,8 @@ p {
   }
 
   .support-card {
-    grid-template-columns: auto minmax(0, 1fr) 260px;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) 260px;
     gap: 34px;
-  }
-
-  .support-action {
-    grid-column: auto;
   }
 }
 

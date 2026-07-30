@@ -69,11 +69,30 @@ for (const reference of new Set(references)) {
   await access(path.join(publicRoot, reference));
 }
 
-if (!html.includes('disabled')) {
-  throw new Error("Os estados desabilitados de download e contribuição não foram encontrados.");
+const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";
+const downloadLinks = [...html.matchAll(
+  /<a\b(?=[^>]*\bdata-download-link\b)[^>]*>/g
+)].map((match) => match[0]);
+if (downloadLinks.length !== 2) {
+  throw new Error("Devem existir dois CTAs oficiais de download.");
+}
+for (const link of downloadLinks) {
+  if (
+    !link.includes(`href="${releaseUrl}"`) ||
+    !link.includes('target="_blank"') ||
+    !link.includes('rel="noopener noreferrer"')
+  ) {
+    throw new Error("CTA de download sem URL ou proteção esperada.");
+  }
+}
+
+if (
+  !html.includes("data-contribution") ||
+  !/<button\b(?=[^>]*\bdata-contribution\b)(?=[^>]*\bdisabled\b)/.test(html)
+) {
+  throw new Error("O CTA de contribuição deve permanecer desabilitado.");
 }
 
 console.log(
   `Site validado: ${publicFiles.length} arquivos públicos e ${new Set(references).size} referências locais.`
 );
-

@@ -19,11 +19,12 @@ no Windows. O aplicativo reúne arquivos e bancos de dados em uma interface
 O aplicativo é portátil e self-contained, preparado para Windows 11 x64. Não
 exige instalação de runtime separado para sua execução.
 
-## Estado do projeto
+## Download
 
-O BackupHub está em preparação para sua primeira distribuição pública. O
-download será disponibilizado depois da publicação de um pacote versionado,
-validado e acompanhado do respectivo hash SHA-256.
+As versões estáveis são distribuídas pela página oficial de
+[GitHub Releases](https://github.com/Rodrigodil/backuphub/releases/latest).
+Cada release informa versão, tamanho, SHA-256, instruções de atualização,
+limitações e rollback.
 
 O projeto não promete criptografia dos backups, restauração automática,
 sincronização ou confirmação de upload em serviços de nuvem.

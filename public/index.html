@@ -45,6 +45,7 @@
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Windows 11 x64",
         "url": "https://rodrigodil.github.io/backuphub/",
+        "downloadUrl": "https://github.com/Rodrigodil/backuphub/releases/latest",
         "description": "Aplicativo portátil para análise, agendamento e execução de backups de arquivos e bancos MariaDB, MySQL, PostgreSQL e Firebird.",
         "author": {
           "@type": "Person",
@@ -90,9 +91,15 @@
           <a href="#interface">Interface</a>
           <a href="#seguranca">Segurança</a>
           <a href="#apoie">Apoie</a>
-          <button class="button button-small button-disabled" type="button" disabled>
-            Download em breve
-          </button>
+          <a
+            class="button button-small"
+            href="https://github.com/Rodrigodil/backuphub/releases/latest"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-download-link
+          >
+            Download
+          </a>
         </nav>
       </div>
     </header>
@@ -119,17 +126,24 @@
             </p>
 
             <div class="hero-actions">
-              <button class="button button-primary" type="button" disabled>
+              <a
+                class="button button-primary"
+                href="https://github.com/Rodrigodil/backuphub/releases/latest"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-download-link
+              >
                 <span>Baixar BackupHub</span>
-                <small>Em breve</small>
-              </button>
+                <small>Windows 11 x64</small>
+              </a>
               <a class="button button-secondary" href="#interface">
                 Conhecer a interface
               </a>
             </div>
 
             <p class="availability">
-              A versão 1.0.0 está em preparação para publicação pública.
+              Pacote portátil e self-contained. Tamanho, SHA-256, instruções e
+              limitações são publicados na release oficial.
             </p>
 
             <ul class="hero-facts" aria-label="Compatibilidade e características">
@@ -571,7 +585,12 @@
             </p>
           </div>
           <div class="support-action">
-            <button class="button button-support" type="button" disabled>
+            <button
+              class="button button-support"
+              type="button"
+              disabled
+              data-contribution
+            >
               Contribuições
               <small>Em breve</small>
             </button>

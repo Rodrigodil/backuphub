@@ -1,63 +1,44 @@
-# Site do BackupHub
+# BackupHub
 
-Landing page estática do BackupHub, preparada para publicação independente em
-`https://rodrigodil.github.io/backuphub/`.
+O BackupHub é um projeto independente para organização e execução de backups
+no Windows. O aplicativo reúne arquivos e bancos de dados em uma interface
+única, com foco em configuração clara, integridade e histórico das execuções.
 
-## Estrutura
+## Principais recursos
 
-- `public/`: conteúdo que será publicado pelo GitHub Pages;
-- `.github/workflows/pages.yml`: publicação automatizada;
-- `Logo-icone/` e `Screenshots/`: fontes locais ignoradas pelo Git.
+- backup de arquivos;
+- suporte a MariaDB, MySQL, PostgreSQL e Firebird;
+- perfis independentes para diferentes rotinas;
+- agendamentos e novas tentativas;
+- retenção configurável;
+- verificação de integridade com SHA-256;
+- histórico auditável das execuções.
 
-O site não utiliza framework, backend, cookies, analytics ou dependências em
-produção.
+## Compatibilidade
 
-## Documentação
+O aplicativo é portátil e self-contained, preparado para Windows 11 x64. Não
+exige instalação de runtime separado para sua execução.
 
-A documentação técnica canônica está em [docs/README.md](docs/README.md).
-Toda alteração do site deve atualizar os documentos afetados e
-[docs/CHANGELOG.md](docs/CHANGELOG.md) na mesma entrega.
+## Estado do projeto
 
-## Executar localmente
+O BackupHub está em preparação para sua primeira distribuição pública. O
+download será disponibilizado depois da publicação de um pacote versionado,
+validado e acompanhado do respectivo hash SHA-256.
 
-Instale as dependências de desenvolvimento apenas na primeira execução:
+O projeto não promete criptografia dos backups, restauração automática,
+sincronização ou confirmação de upload em serviços de nuvem.
 
-```powershell
-npm install
-```
+## Site oficial
 
-Inicie o site:
+Conheça o projeto e acompanhe sua disponibilidade em:
 
-```powershell
-npm run dev
-```
+**[rodrigodil.github.io/backuphub](https://rodrigodil.github.io/backuphub/)**
 
-Abra `http://localhost:4173`. O endereço
-`http://localhost:4173/backuphub/` também está disponível para simular o caminho
-final do GitHub Pages.
+## Contribuições
 
-Para usar outra porta:
+Uma forma oficial de apoio financeiro será divulgada futuramente. Nenhum canal
+de doação está ativo neste momento.
 
-```powershell
-$env:PORT=4174
-npm run dev
-```
+## Licença
 
-## Publicação
-
-1. crie o repositório público `Rodrigodil/backuphub`;
-2. use esta pasta como raiz do novo repositório;
-3. em **Settings > Pages**, escolha **GitHub Actions** como origem;
-4. envie o branch `main`.
-
-O workflow publica exclusivamente `public/`. As capturas originais e os demais
-arquivos-fonte não entram no artefato do site.
-
-## Ativação futura dos botões
-
-Download e contribuição permanecem desabilitados no HTML. Antes de ativá-los:
-
-- publique uma release reproduzível acompanhada do SHA-256;
-- valide versão, requisitos, limitações e rollback;
-- escolha e valide uma plataforma de contribuição;
-- use exclusivamente URLs HTTPS oficiais.
+A licença e as condições para contribuições técnicas ainda serão definidas.

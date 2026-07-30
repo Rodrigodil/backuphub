@@ -36,7 +36,7 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
-      - name: Validar site e documentação
+      - name: Validar site
         run: npm run check
 
       - name: Validar arquivos públicos
@@ -49,7 +49,7 @@ jobs:
           test -f public/script.js
           test -f public/robots.txt
           test -f public/sitemap.xml
-          if grep -RInE 'Projetos-Workspace|Sistemas-KS|Meu Drive|mariadb-local-ks|MariaDB local KS|Aplicativo-Backup|RodrigoTI|C:\\Users' public docs README.md AGENTS.md; then
+          if grep -RInE 'Projetos-Workspace|Sistemas-KS|Meu Drive|mariadb-local-ks|MariaDB local KS|Aplicativo-Backup|RodrigoTI|C:\\Users' public README.md; then
             echo "Conteúdo interno encontrado nos arquivos públicos."
             exit 1
           fi

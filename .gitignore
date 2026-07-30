@@ -3,6 +3,11 @@
 /Screenshots/
 /node_modules/
 
+# Documentação interna de manutenção.
+/docs/
+/AGENTS.md
+/tools/check-docs.mjs
+
 # Arquivos locais de sistema e editor.
 .DS_Store
 Thumbs.db

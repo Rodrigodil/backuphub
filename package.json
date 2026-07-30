@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "assets": "node tools/process-assets.mjs",
-    "check": "html-validate public/index.html public/404.html && node tools/check-site.mjs && node tools/check-docs.mjs",
+    "check": "html-validate public/index.html public/404.html && node tools/check-site.mjs",
     "dev": "node tools/dev-server.mjs"
   },
   "devDependencies": {

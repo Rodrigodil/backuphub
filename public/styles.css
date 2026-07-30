@@ -289,6 +289,80 @@ p {
   font-size: 0.9rem;
 }
 
+.header-download {
+  min-height: 54px;
+  padding: 7px 12px 7px 8px;
+  justify-content: flex-start;
+  gap: 10px;
+  color: #fff;
+  border-color: rgb(111 174 255 / 54%);
+  background:
+    linear-gradient(135deg, rgb(34 93 184 / 72%), rgb(18 52 105 / 88%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 16%),
+    0 8px 22px rgb(0 45 112 / 24%);
+}
+
+.main-nav > .header-download:hover {
+  color: #fff;
+  border-color: rgb(131 194 255 / 82%);
+  background:
+    linear-gradient(135deg, rgb(43 112 224 / 84%), rgb(22 67 137 / 96%));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 20%),
+    0 10px 26px rgb(0 72 175 / 32%);
+}
+
+.header-download-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 16%);
+  border-radius: 10px;
+  color: #fff;
+  background: linear-gradient(145deg, var(--blue-500), var(--blue-700));
+  box-shadow: 0 5px 12px rgb(0 63 153 / 30%);
+  font-size: 1.15rem;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.header-download-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1;
+}
+
+.header-download-copy strong {
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.header-download-copy small {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #bcd4f2;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.header-download-copy small::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 3px rgb(42 201 115 / 12%);
+  content: "";
+}
+
 .button-primary {
   min-width: 210px;
   flex-direction: column;
@@ -1396,6 +1470,20 @@ p {
     min-height: 44px;
     padding-inline: 13px;
     font-size: 0.88rem;
+  }
+
+  .main-nav > .header-download {
+    min-height: 48px;
+    padding: 5px 10px 5px 6px;
+    gap: 8px;
+    border-radius: 14px;
+  }
+
+  .main-nav > .header-download .header-download-icon {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+    border-radius: 9px;
   }
 
   .hero-grid {

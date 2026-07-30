@@ -70,6 +70,7 @@ for (const reference of new Set(references)) {
 }
 
 const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";
+const currentAppVersion = "1.0.0";
 const downloadLinks = [...html.matchAll(
   /<a\b(?=[^>]*\bdata-download-link\b)[^>]*>/g
 )].map((match) => match[0]);
@@ -84,6 +85,20 @@ for (const link of downloadLinks) {
   ) {
     throw new Error("CTA de download sem URL ou proteção esperada.");
   }
+}
+
+const headerDownload = downloadLinks.find((link) =>
+  link.includes("header-download")
+);
+if (
+  !headerDownload ||
+  !headerDownload.includes(`data-app-version="${currentAppVersion}"`) ||
+  !headerDownload.includes(
+    `aria-label="Baixar BackupHub versão ${currentAppVersion}"`
+  ) ||
+  !html.includes(`<small>Versão ${currentAppVersion}</small>`)
+) {
+  throw new Error("O CTA do cabeçalho não informa a versão atual.");
 }
 
 if (

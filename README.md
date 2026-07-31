@@ -40,7 +40,9 @@ download atual e sitemap.
 
 Quando o mantenedor solicitar **“atualizar tudo”**, a entrega inclui
 obrigatoriamente a página única de versões. A nova release deve existir e estar
-validada antes de atualizar o download direto no site.
+validada antes de atualizar o download direto no site. A mesma entrega também
+deve atualizar os dois CTAs de download da página principal e seu dado
+estruturado `downloadUrl`, sempre usando a URL do ZIP vigente em `versions.json`.
 
 O projeto não promete criptografia dos backups, restauração automática,
 sincronização ou confirmação de upload em serviços de nuvem.

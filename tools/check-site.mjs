@@ -175,12 +175,14 @@ if (
   currentDownloads.length !== 2 ||
   currentDownloads.some((link) =>
     !link.includes(`href="${currentVersion.download.url}"`) ||
+    !link.includes('target="_blank"') ||
     !link.includes('rel="noopener noreferrer"')
   ) ||
   !versionsHtml.includes("data-current-version") ||
-  !versionsHtml.includes('aria-current="page"')
+  !versionsHtml.includes('aria-current="page"') ||
+  (versionsHtml.match(/<a href="\.\.\/#apoie">Apoie<\/a>/g) ?? []).length !== 1
 ) {
-  throw new Error("Download atual ou estado de navegação inválido na página de versões.");
+  throw new Error("Download atual ou navegação inválida na página de versões.");
 }
 if (
   (html.match(/href="\.\/versoes\/"/g) ?? []).length !== 2 ||
@@ -205,8 +207,8 @@ if (
   );
 }
 
-const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";
-const currentAppVersion = "1.1.1";
+const currentDownloadUrl = currentVersion.download.url;
+const currentAppVersion = manifest.currentVersion;
 // Integração temporária: ao trocar a conta Stripe, atualizar este contrato,
 // os dois hrefs em public/index.html e o QR Code público na mesma entrega.
 const temporaryContributionUrl =
@@ -219,12 +221,16 @@ if (downloadLinks.length !== 2) {
 }
 for (const link of downloadLinks) {
   if (
-    !link.includes(`href="${releaseUrl}"`) ||
+    !link.includes(`href="${currentDownloadUrl}"`) ||
     !link.includes('target="_blank"') ||
     !link.includes('rel="noopener noreferrer"')
   ) {
     throw new Error("CTA de download sem URL ou proteção esperada.");
   }
+}
+
+if (!html.includes(`"downloadUrl": "${currentDownloadUrl}"`)) {
+  throw new Error("Os dados estruturados divergem do download vigente no manifesto.");
 }
 
 const headerDownload = downloadLinks.find((link) =>

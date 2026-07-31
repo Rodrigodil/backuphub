@@ -130,6 +130,7 @@ const html = `<!DOCTYPE html>
           <a href="../#interface">Interface</a>
           <a href="../#seguranca">Segurança</a>
           <a href="./" aria-current="page">Versões</a>
+          <a href="../#apoie">Apoie</a>
           <a class="button button-small header-download" href="${escapeHtml(current.download.url)}" target="_blank" rel="noopener noreferrer" data-current-download data-app-version="${escapeHtml(current.version)}" aria-label="Baixar BackupHub versão ${escapeHtml(current.version)}">
             <span class="header-download-icon" aria-hidden="true">↓</span>
             <span class="header-download-copy"><strong>Baixar</strong><small>Versão ${escapeHtml(current.version)}</small></span>

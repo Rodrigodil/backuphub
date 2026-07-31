@@ -1347,6 +1347,298 @@ p {
   font-size: 0.69rem;
 }
 
+.main-nav > a[aria-current="page"] {
+  color: #fff;
+  background: rgb(42 140 255 / 18%);
+}
+
+.versions-page {
+  min-height: 70vh;
+  background: var(--surface-soft);
+}
+
+.versions-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0 58px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 88% 18%, rgb(42 140 255 / 28%), transparent 32%),
+    linear-gradient(145deg, var(--navy-900), var(--navy-950));
+}
+
+.versions-hero::after {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border: 1px solid rgb(255 255 255 / 8%);
+  border-radius: 50%;
+  content: "";
+  right: -170px;
+  bottom: -220px;
+}
+
+.versions-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 30px;
+}
+
+.versions-hero h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2.5rem, 11vw, 4.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+.versions-hero p:not(.eyebrow) {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: #b9c9dd;
+  font-size: 1.02rem;
+}
+
+.versions-count {
+  display: grid;
+  width: min(100%, 230px);
+  padding: 20px;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: var(--radius-md);
+  background: rgb(255 255 255 / 6%);
+  box-shadow: var(--shadow-lg);
+}
+
+.versions-count strong {
+  color: #fff;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.versions-count span {
+  margin-top: 8px;
+  color: #9fb2ca;
+  font-size: 0.83rem;
+}
+
+.versions-catalog {
+  padding-block: 34px 76px;
+}
+
+.version-card {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+.version-card-current {
+  border-color: #a7cfff;
+  background: linear-gradient(145deg, #fff, var(--surface-blue));
+  box-shadow: 0 24px 62px rgb(7 95 214 / 14%);
+}
+
+.version-card-heading {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.version-card-heading h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 8vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.version-card-heading time {
+  width: fit-content;
+  padding: 7px 11px;
+  border-radius: 999px;
+  color: var(--ink-600);
+  background: var(--surface-soft);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.version-status {
+  margin-bottom: 7px;
+  color: var(--ink-600);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.version-status-current {
+  color: var(--green-600);
+}
+
+.current-version-grid {
+  display: grid;
+  gap: 26px;
+}
+
+.version-card h3 {
+  margin-bottom: 10px;
+  color: var(--ink-900);
+  font-size: 1.12rem;
+}
+
+.version-card > p,
+.current-version-grid > div > p {
+  color: var(--ink-600);
+}
+
+.version-changes {
+  display: grid;
+  gap: 10px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.version-changes li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--ink-700);
+  font-size: 0.91rem;
+}
+
+.version-changes li::before {
+  position: absolute;
+  top: 0.63em;
+  left: 2px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue-600);
+  box-shadow: 0 0 0 4px var(--blue-100);
+  content: "";
+}
+
+.current-download {
+  min-width: 0;
+  padding: 22px;
+  border-radius: 17px;
+  color: #fff;
+  background: linear-gradient(145deg, var(--navy-850), var(--navy-950));
+  box-shadow: var(--shadow-lg);
+}
+
+.download-platform {
+  margin-bottom: 12px;
+  color: #9fb2ca;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.version-download {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+.version-download small {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.66rem;
+  opacity: 0.82;
+}
+
+.artifact-details {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 18px;
+}
+
+.artifact-details div {
+  min-width: 0;
+  padding-top: 13px;
+  border-top: 1px solid rgb(255 255 255 / 11%);
+}
+
+.artifact-details dt {
+  color: #8fa4bf;
+  font-size: 0.7rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.artifact-details dd {
+  margin: 5px 0 0;
+  color: #fff;
+  font-size: 0.8rem;
+}
+
+.artifact-details code {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #bcd8ff;
+  font-size: 0.69rem;
+}
+
+.release-details-link {
+  color: #bcd8ff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.versions-section-heading {
+  max-width: 720px;
+  margin: 58px 0 24px;
+}
+
+.versions-section-heading h2 {
+  margin-bottom: 12px;
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  letter-spacing: -0.045em;
+}
+
+.versions-section-heading > p:last-child {
+  margin-bottom: 0;
+  color: var(--ink-600);
+}
+
+.version-history-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.version-card-history {
+  display: flex;
+  flex-direction: column;
+}
+
+.version-card-history .version-card-heading h2 {
+  font-size: 1.65rem;
+}
+
+.version-card-history .version-changes {
+  margin-bottom: 24px;
+}
+
+.historical-notice {
+  margin: auto 0 0;
+  padding: 13px 14px;
+  border-radius: 10px;
+  color: var(--ink-600);
+  background: var(--surface-soft);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.footer-grid a[aria-current="page"] {
+  color: #fff;
+  font-weight: 700;
+}
+
 .site-footer {
   padding: 58px 0 22px;
   color: #d2def0;
@@ -1481,6 +1773,11 @@ p {
 }
 
 @media (min-width: 560px) {
+  .version-card-heading {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -1523,6 +1820,34 @@ p {
 @media (min-width: 768px) {
   .container {
     width: min(calc(100% - 64px), var(--container));
+  }
+
+  .versions-hero {
+    padding-block: 82px 74px;
+  }
+
+  .versions-hero-grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 64px;
+  }
+
+  .versions-catalog {
+    padding-block: 52px 96px;
+  }
+
+  .version-card {
+    padding: 32px;
+  }
+
+  .current-version-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.62fr);
+    align-items: start;
+    gap: 40px;
+  }
+
+  .version-history-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero {
@@ -1675,6 +2000,10 @@ p {
 }
 
 @media (min-width: 1200px) {
+  .version-history-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .hero {
     min-height: 740px;
   }

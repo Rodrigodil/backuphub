@@ -1,0 +1,61 @@
+{
+  "currentVersion": "1.1.1",
+  "updatedAt": "2026-07-31",
+  "versions": [
+    {
+      "version": "1.1.1",
+      "publishedAt": "2026-07-31",
+      "title": "Persistência por seção e configuração simplificada",
+      "summary": "Correções de persistência e refinamentos dos perfis, bancos e agendamentos.",
+      "changes": [
+        "Bancos selecionados permanecem visíveis ao alternar conexões ou reabrir a configuração.",
+        "Perfis de arquivos usam uma única origem e são salvos independentemente dos bancos.",
+        "Cada aba salva somente sua seção e mantém a janela de configurações aberta.",
+        "Novos agendamentos são criados no editor atual com entradas limitadas ao domínio válido."
+      ],
+      "releaseUrl": "https://github.com/Rodrigodil/backuphub/releases/tag/v1.1.1",
+      "download": {
+        "file": "BackupHub-1.1.1-win-x64.zip",
+        "url": "https://github.com/Rodrigodil/backuphub/releases/download/v1.1.1/BackupHub-1.1.1-win-x64.zip",
+        "size": 73820782,
+        "sha256": "0B59354653E971CACA133B631BFD0D2A78647B2C5033C80C7E5919CAFEA3A4F0"
+      }
+    },
+    {
+      "version": "1.1.0",
+      "publishedAt": "2026-07-31",
+      "title": "Agendamentos confiáveis e exclusões guiadas",
+      "summary": "Evolução dos agendamentos, notificações e configuração visual das exclusões.",
+      "changes": [
+        "Aviso prévio configurável antes do backup e notificação do resultado.",
+        "Recuperação de execuções e tentativas que atravessam a meia-noite.",
+        "Assistente visual para selecionar arquivos e pastas de exclusão.",
+        "Migration SQLite v2 compatível com as tabelas da versão 1.0.1."
+      ]
+    },
+    {
+      "version": "1.0.1",
+      "publishedAt": "2026-07-30",
+      "title": "Canais oficiais e manutenção portátil",
+      "summary": "Atualização da interface pública, documentação de manutenção e canais oficiais.",
+      "changes": [
+        "Janela Sobre limitada ao site e à página oficial do autor.",
+        "Runbook de backup, limpeza, compilação e rollback documentado.",
+        "Verificador seguro de atualizações via GitHub Releases preservado.",
+        "Pacote portátil e self-contained para Windows 11 x64."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "publishedAt": "2026-07-30",
+      "title": "Primeira versão pública estável",
+      "summary": "Base nativa do BackupHub para backups de arquivos e quatro provedores de banco.",
+      "changes": [
+        "Backups de arquivos, MariaDB, MySQL, PostgreSQL e Firebird.",
+        "Perfis, agendamentos, retenção, histórico e manifestos com SHA-256.",
+        "Consulta segura e não bloqueante de novas versões.",
+        "Distribuição portátil para Windows 11 x64."
+      ]
+    }
+  ]
+}

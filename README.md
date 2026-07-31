@@ -27,6 +27,21 @@ As versões estáveis são distribuídas pela página oficial de
 Cada release informa versão, tamanho, SHA-256, instruções de atualização,
 limitações e rollback.
 
+## Histórico de versões
+
+A página pública [Versões](https://rodrigodil.github.io/backuphub/versoes/)
+lista todas as releases estáveis. Somente a versão mais recente oferece download
+direto; versões anteriores permanecem como histórico sem link para seus pacotes.
+
+O arquivo `versions.json` é a fonte canônica da página. Depois de alterá-lo,
+execute `npm run versions` para regenerar `public/versoes/index.html`. O comando
+`npm run check` rejeita divergência entre manifesto, `package.json`, página,
+download atual e sitemap.
+
+Quando o mantenedor solicitar **“atualizar tudo”**, a entrega inclui
+obrigatoriamente a página única de versões. A nova release deve existir e estar
+validada antes de atualizar o download direto no site.
+
 O projeto não promete criptografia dos backups, restauração automática,
 sincronização ou confirmação de upload em serviços de nuvem.
 

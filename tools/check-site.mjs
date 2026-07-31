@@ -4,8 +4,10 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const publicRoot = path.join(root, "public");
+const manifestPath = path.join(root, "versions.json");
 const requiredFiles = [
   "index.html",
+  "versoes/index.html",
   "404.html",
   "styles.css",
   "script.js",
@@ -61,13 +63,136 @@ for (const file of textFiles) {
 }
 
 const html = await readFile(path.join(publicRoot, "index.html"), "utf8");
+const versionsHtml = await readFile(
+  path.join(publicRoot, "versoes", "index.html"),
+  "utf8"
+);
+const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+const packageDocument = JSON.parse(
+  await readFile(path.join(root, "package.json"), "utf8")
+);
 const css = await readFile(path.join(publicRoot, "styles.css"), "utf8");
-const references = [...html.matchAll(/(?:src|href|srcset)="\.\/([^"#?]+)"/g)]
-  .map((match) => match[1])
-  .filter((reference) => !reference.endsWith("/"));
+const htmlFiles = publicFiles.filter((file) => path.extname(file) === ".html");
+const localReferences = new Set();
+for (const htmlFile of htmlFiles) {
+  const page = await readFile(htmlFile, "utf8");
+  const references = [...page.matchAll(/(?:src|href|srcset)="([^"#?]+)"/g)]
+    .map((match) => match[1])
+    .filter((reference) =>
+      !reference.endsWith("/") &&
+      !reference.startsWith("http://") &&
+      !reference.startsWith("https://") &&
+      !reference.startsWith("mailto:")
+  );
+  for (const reference of references) {
+    const resolved = reference.startsWith("/backuphub/")
+      ? path.resolve(publicRoot, reference.slice("/backuphub/".length))
+      : path.resolve(path.dirname(htmlFile), reference);
+    if (!resolved.startsWith(`${publicRoot}${path.sep}`)) {
+      throw new Error(`Referência fora de public: ${reference}`);
+    }
+    await access(resolved);
+    localReferences.add(path.relative(publicRoot, resolved));
+  }
+}
 
-for (const reference of new Set(references)) {
-  await access(path.join(publicRoot, reference));
+const versionPattern = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
+if (!versionPattern.test(manifest.currentVersion)) {
+  throw new Error("Versão atual inválida no manifesto.");
+}
+if (manifest.currentVersion !== packageDocument.version) {
+  throw new Error("Manifesto de versões diverge do package.json.");
+}
+if (!Array.isArray(manifest.versions) || manifest.versions.length === 0) {
+  throw new Error("O manifesto precisa conter ao menos uma versão.");
+}
+
+const currentVersions = manifest.versions.filter(
+  (version) => version.version === manifest.currentVersion
+);
+if (currentVersions.length !== 1) {
+  throw new Error("O manifesto deve possuir exatamente uma versão atual.");
+}
+const currentVersion = currentVersions[0];
+if (!currentVersion.download) {
+  throw new Error("A versão atual precisa oferecer o download oficial.");
+}
+for (const version of manifest.versions) {
+  if (!versionPattern.test(version.version)) {
+    throw new Error(`Versão inválida no manifesto: ${version.version}`);
+  }
+  if (
+    version.version !== manifest.currentVersion &&
+    (version.download || version.releaseUrl)
+  ) {
+    throw new Error(`Versão histórica não pode oferecer download: ${version.version}`);
+  }
+}
+
+const sortedVersions = [...manifest.versions].sort((left, right) => {
+  const leftParts = left.version.split(".").map(Number);
+  const rightParts = right.version.split(".").map(Number);
+  for (let index = 0; index < 3; index += 1) {
+    if (leftParts[index] !== rightParts[index]) {
+      return rightParts[index] - leftParts[index];
+    }
+  }
+  return 0;
+});
+if (
+  sortedVersions.some(
+    (version, index) => version.version !== manifest.versions[index].version
+  ) || sortedVersions[0].version !== manifest.currentVersion
+) {
+  throw new Error("As versões devem estar em ordem decrescente, com a atual primeiro.");
+}
+
+const expectedAssetUrl =
+  `https://github.com/Rodrigodil/backuphub/releases/download/v${manifest.currentVersion}/` +
+  `BackupHub-${manifest.currentVersion}-win-x64.zip`;
+if (
+  currentVersion.download.url !== expectedAssetUrl ||
+  currentVersion.download.file !== `BackupHub-${manifest.currentVersion}-win-x64.zip` ||
+  !Number.isSafeInteger(currentVersion.download.size) ||
+  currentVersion.download.size <= 0 ||
+  !/^[A-F0-9]{64}$/.test(currentVersion.download.sha256)
+) {
+  throw new Error("Metadados do ZIP atual são inválidos ou inconsistentes.");
+}
+
+const versionCards = [...versionsHtml.matchAll(/\bdata-version="([^"]+)"/g)]
+  .map((match) => match[1]);
+if (
+  versionCards.length !== manifest.versions.length ||
+  manifest.versions.some((version) => !versionCards.includes(version.version))
+) {
+  throw new Error("A página não representa todas as versões do manifesto.");
+}
+const currentDownloads = [...versionsHtml.matchAll(
+  /<a\b(?=[^>]*\bdata-current-download\b)[^>]*>/g
+)].map((match) => match[0]);
+if (
+  currentDownloads.length !== 2 ||
+  currentDownloads.some((link) =>
+    !link.includes(`href="${currentVersion.download.url}"`) ||
+    !link.includes('rel="noopener noreferrer"')
+  ) ||
+  !versionsHtml.includes("data-current-version") ||
+  !versionsHtml.includes('aria-current="page"')
+) {
+  throw new Error("Download atual ou estado de navegação inválido na página de versões.");
+}
+if (
+  (html.match(/href="\.\/versoes\/"/g) ?? []).length !== 2 ||
+  !versionsHtml.includes(
+    '<link rel="canonical" href="https://rodrigodil.github.io/backuphub/versoes/">'
+  )
+) {
+  throw new Error("Menu, rodapé ou canonical da página de versões está incompleto.");
+}
+const sitemap = await readFile(path.join(publicRoot, "sitemap.xml"), "utf8");
+if (!sitemap.includes("https://rodrigodil.github.io/backuphub/versoes/")) {
+  throw new Error("A página de versões não está no sitemap.");
 }
 
 if (
@@ -163,5 +288,5 @@ if (
 }
 
 console.log(
-  `Site validado: ${publicFiles.length} arquivos públicos e ${new Set(references).size} referências locais.`
+  `Site validado: ${publicFiles.length} arquivos públicos, ${localReferences.size} referências locais e ${manifest.versions.length} versões.`
 );

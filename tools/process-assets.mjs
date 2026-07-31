@@ -20,13 +20,9 @@ const screenshots = [
     ]
   },
   {
-    source: "BackupHub-1.1.0-perfis.png",
+    source: "BackupHub-1.1.1-perfis.png",
     name: "perfis",
-    masks: [
-      { x: 328, y: 198, width: 775, height: 33, label: "Perfil principal" },
-      { x: 328, y: 264, width: 735, height: 43, label: "Destino configurado" },
-      { x: 592, y: 391, width: 378, height: 42, label: "Origem selecionada" }
-    ]
+    masks: []
   },
   {
     source: "Captura de tela 2026-07-30 134906.png",
@@ -38,7 +34,7 @@ const screenshots = [
     ]
   },
   {
-    source: "BackupHub-1.1.0-agendamentos.png",
+    source: "BackupHub-1.1.1-agendamentos.png",
     name: "agendamentos",
     masks: []
   }

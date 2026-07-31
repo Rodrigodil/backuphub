@@ -69,9 +69,6 @@ const historicalCards = history
               <ul class="version-changes">
                 ${changesList(version)}
               </ul>
-              <p class="historical-notice">
-                Esta versão foi substituída e não possui download direto nesta página.
-              </p>
             </article>`
   )
   .join("\n");
@@ -191,7 +188,7 @@ const html = `<!DOCTYPE html>
         <div class="versions-section-heading">
           <p class="eyebrow"><span aria-hidden="true"></span>Evolução</p>
           <h2>Versões anteriores</h2>
-          <p>Registros históricos sem download direto. Para novas instalações e atualizações, utilize sempre a versão destacada acima.</p>
+          <p>Consulte o registro das versões anteriores e acompanhe a evolução dos recursos, correções e melhorias do BackupHub.</p>
         </div>
         <div class="version-history-grid">
 ${historicalCards}

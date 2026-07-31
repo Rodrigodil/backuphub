@@ -1624,16 +1624,6 @@ p {
   margin-bottom: 24px;
 }
 
-.historical-notice {
-  margin: auto 0 0;
-  padding: 13px 14px;
-  border-radius: 10px;
-  color: var(--ink-600);
-  background: var(--surface-soft);
-  font-size: 0.78rem;
-  font-weight: 650;
-}
-
 .footer-grid a[aria-current="page"] {
   color: #fff;
   font-weight: 700;

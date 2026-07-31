@@ -9,7 +9,8 @@ no Windows. O aplicativo reúne arquivos e bancos de dados em uma interface
 - backup de arquivos;
 - suporte a MariaDB, MySQL, PostgreSQL e Firebird;
 - perfis independentes para diferentes rotinas;
-- agendamentos e novas tentativas;
+- exclusões guiadas por origem, pasta e arquivo;
+- agendamentos com aviso prévio e novas tentativas;
 - retenção configurável;
 - verificação de integridade com SHA-256;
 - histórico auditável das execuções.

@@ -20,12 +20,12 @@ const screenshots = [
     ]
   },
   {
-    source: "Captura de tela 2026-07-30 134823.png",
+    source: "BackupHub-1.1.0-perfis.png",
     name: "perfis",
     masks: [
-      { x: 43, y: 202, width: 234, height: 29, label: "Perfil principal" },
-      { x: 331, y: 261, width: 562, height: 45, label: "Destino configurado" },
-      { x: 382, y: 388, width: 641, height: 43, label: "Origem configurada" }
+      { x: 328, y: 198, width: 775, height: 33, label: "Perfil principal" },
+      { x: 328, y: 264, width: 735, height: 43, label: "Destino configurado" },
+      { x: 592, y: 391, width: 378, height: 42, label: "Origem selecionada" }
     ]
   },
   {
@@ -38,7 +38,7 @@ const screenshots = [
     ]
   },
   {
-    source: "Captura de tela 2026-07-30 134918.png",
+    source: "BackupHub-1.1.0-agendamentos.png",
     name: "agendamentos",
     masks: []
   }

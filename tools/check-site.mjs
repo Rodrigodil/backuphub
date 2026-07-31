@@ -81,7 +81,7 @@ if (
 }
 
 const releaseUrl = "https://github.com/Rodrigodil/backuphub/releases/latest";
-const currentAppVersion = "1.0.1";
+const currentAppVersion = "1.1.0";
 // Integração temporária: ao trocar a conta Stripe, atualizar este contrato,
 // os dois hrefs em public/index.html e o QR Code público na mesma entrega.
 const temporaryContributionUrl =

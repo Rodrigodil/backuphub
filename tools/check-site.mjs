@@ -209,10 +209,10 @@ if (
 
 const currentDownloadUrl = currentVersion.download.url;
 const currentAppVersion = manifest.currentVersion;
-// Integração temporária: ao trocar a conta Stripe, atualizar este contrato,
-// os dois hrefs em public/index.html e o QR Code público na mesma entrega.
-const temporaryContributionUrl =
-  "https://donate.stripe.com/28E5kD8OH7fV6dW7I6cEw00";
+// Ao trocar a conta Stripe, atualizar este contrato, os dois hrefs em
+// public/index.html e o QR Code público na mesma entrega.
+const contributionUrl =
+  "https://donate.stripe.com/8x2cN4eFRb4O0uW5Odbo400";
 const downloadLinks = [...html.matchAll(
   /<a\b(?=[^>]*\bdata-download-link\b)[^>]*>/g
 )].map((match) => match[0]);
@@ -274,12 +274,12 @@ if (contributionLinks.length !== 2) {
 }
 for (const link of contributionLinks) {
   if (
-    !link.includes(`href="${temporaryContributionUrl}"`) ||
+    !link.includes(`href="${contributionUrl}"`) ||
     !link.includes('target="_blank"') ||
     !link.includes('rel="noopener noreferrer external"') ||
     !link.includes('referrerpolicy="no-referrer"')
   ) {
-    throw new Error("Link de apoio fora do contrato temporário aprovado.");
+    throw new Error("Link de apoio fora do contrato aprovado.");
   }
 }
 

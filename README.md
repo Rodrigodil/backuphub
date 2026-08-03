@@ -56,12 +56,12 @@ Conheça o projeto e acompanhe sua disponibilidade em:
 ## Contribuições
 
 O apoio financeiro está disponível pelo
-[Payment Link da Stripe](https://donate.stripe.com/28E5kD8OH7fV6dW7I6cEw00).
+[Payment Link da Stripe](https://donate.stripe.com/8x2cN4eFRb4O0uW5Odbo400).
 O pagamento ocorre fora do site e o BackupHub não recebe dados do cartão.
 
-A integração atual usa uma conta temporária. URL e QR Code serão substituídos
-de forma coordenada quando a conta definitiva do projeto estiver disponível;
-confira sempre o canal vigente no site oficial.
+O Payment Link e o QR Code pertencem à conta definitiva do projeto. Qualquer
+troca futura deve atualizar URL, QR Code, validações e documentação de forma
+coordenada; confira sempre o canal vigente no site oficial.
 
 ## Licença
 

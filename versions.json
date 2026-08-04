@@ -1,7 +1,27 @@
 {
-  "currentVersion": "1.2.1",
+  "currentVersion": "1.2.2",
   "updatedAt": "2026-08-04",
   "versions": [
+    {
+      "version": "1.2.2",
+      "publishedAt": "2026-08-04",
+      "title": "Planos íntegros e resultados flexíveis",
+      "summary": "Migração idempotente, validação consistente de agendamentos e colunas redimensionáveis para resultados extensos.",
+      "changes": [
+        "Planos removidos e vínculos desmarcados não são mais recriados ao reiniciar o aplicativo.",
+        "Nome, estado ativo, seleção e conexões do plano são recarregados e conferidos no SQLite após o salvamento.",
+        "Agendamentos ativos exigem o conteúdo compatível com sua operação e com a modalidade local ou remota do plano.",
+        "Uma seleção vazia de bancos falha de forma segura e nunca executa todas as conexões por fallback.",
+        "As colunas de arquivos e bancos usam proporções iniciais consistentes e podem ser redimensionadas para exibir nomes e detalhes extensos."
+      ],
+      "releaseUrl": "https://github.com/Rodrigodil/backuphub/releases/tag/v1.2.2",
+      "download": {
+        "file": "BackupHub-1.2.2-win-x64.zip",
+        "url": "https://github.com/Rodrigodil/backuphub/releases/download/v1.2.2/BackupHub-1.2.2-win-x64.zip",
+        "size": 76710614,
+        "sha256": "8CF84BFCC7D07E3AF50A337DF8FD40CDBAF12FD3E13D30AD3140A6AF378FEE1F"
+      }
+    },
     {
       "version": "1.2.1",
       "publishedAt": "2026-08-04",
@@ -13,14 +33,7 @@
         "O resultado real da execução confirma a conclusão e eventos atrasados não exibem mais falso estado de falha.",
         "O seletor de planos mantém texto claro em todo o item destacado.",
         "Schema SQLite, motores de cópia e dump, credenciais, origens e destinos permanecem inalterados."
-      ],
-      "releaseUrl": "https://github.com/Rodrigodil/backuphub/releases/tag/v1.2.1",
-      "download": {
-        "file": "BackupHub-1.2.1-win-x64.zip",
-        "url": "https://github.com/Rodrigodil/backuphub/releases/download/v1.2.1/BackupHub-1.2.1-win-x64.zip",
-        "size": 76709935,
-        "sha256": "52D59D8507E5FA7570FB5CE574259B551FE68A89B2BAD789ABDE220FC12A4D84"
-      }
+      ]
     },
     {
       "version": "1.2.0",

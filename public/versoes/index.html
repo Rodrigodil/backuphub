@@ -22,7 +22,7 @@
     <meta property="og:image" content="https://rodrigodil.github.io/backuphub/assets/og-backuphub.png">
     <meta property="og:image:alt" content="BackupHub — backups organizados, íntegros e auditáveis">
     <meta name="twitter:card" content="summary_large_image">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Versões do BackupHub","url":"https://rodrigodil.github.io/backuphub/versoes/","mainEntity":[{"@type":"SoftwareApplication","name":"BackupHub 1.1.1","datePublished":"2026-07-31","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.1.0","datePublished":"2026-07-31","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.0.1","datePublished":"2026-07-30","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.0.0","datePublished":"2026-07-30","operatingSystem":"Windows 11 x64"}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Versões do BackupHub","url":"https://rodrigodil.github.io/backuphub/versoes/","mainEntity":[{"@type":"SoftwareApplication","name":"BackupHub 1.2.0","datePublished":"2026-08-04","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.1.1","datePublished":"2026-07-31","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.1.0","datePublished":"2026-07-31","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.0.1","datePublished":"2026-07-30","operatingSystem":"Windows 11 x64"},{"@type":"SoftwareApplication","name":"BackupHub 1.0.0","datePublished":"2026-07-30","operatingSystem":"Windows 11 x64"}]}</script>
     <script src="../script.js" defer></script>
   </head>
   <body>
@@ -42,9 +42,9 @@
           <a href="../#seguranca">Segurança</a>
           <a href="./" aria-current="page">Versões</a>
           <a href="../#apoie">Apoie</a>
-          <a class="button button-small header-download" href="https://github.com/Rodrigodil/backuphub/releases/download/v1.1.1/BackupHub-1.1.1-win-x64.zip" target="_blank" rel="noopener noreferrer" data-current-download data-app-version="1.1.1" aria-label="Baixar BackupHub versão 1.1.1">
+          <a class="button button-small header-download" href="https://github.com/Rodrigodil/backuphub/releases/download/v1.2.0/BackupHub-1.2.0-win-x64.zip" target="_blank" rel="noopener noreferrer" data-current-download data-app-version="1.2.0" aria-label="Baixar BackupHub versão 1.2.0">
             <span class="header-download-icon" aria-hidden="true">↓</span>
-            <span class="header-download-copy"><strong>Baixar</strong><small>Versão 1.1.1</small></span>
+            <span class="header-download-copy"><strong>Baixar</strong><small>Versão 1.2.0</small></span>
           </a>
         </nav>
       </div>
@@ -59,43 +59,44 @@
             <p>Consulte a evolução do aplicativo e baixe somente a versão estável mais recente, acompanhada de tamanho e SHA-256 verificáveis.</p>
           </div>
           <div class="versions-count" role="group" aria-label="Resumo do histórico">
-            <strong>4</strong>
+            <strong>5</strong>
             <span>versões publicadas</span>
           </div>
         </div>
       </section>
 
       <section class="container versions-catalog" aria-labelledby="latest-version-title">
-        <article class="version-card version-card-current" data-version="1.1.1" data-current-version>
+        <article class="version-card version-card-current" data-version="1.2.0" data-current-version>
           <div class="version-card-heading">
             <div>
               <p class="version-status version-status-current">Versão mais recente</p>
-              <h2 id="latest-version-title">BackupHub 1.1.1</h2>
+              <h2 id="latest-version-title">BackupHub 1.2.0</h2>
             </div>
-            <time datetime="2026-07-31">31 de julho de 2026</time>
+            <time datetime="2026-08-04">04 de agosto de 2026</time>
           </div>
           <div class="current-version-grid">
             <div>
-              <h3>Persistência por seção e configuração simplificada</h3>
-              <p>Correções de persistência e refinamentos dos perfis, bancos e agendamentos.</p>
+              <h3>Planos locais e remotos com integridade reforçada</h3>
+              <p>Planos unificados, origens SSH/SFTP e proteção adicional para publicação, retenção e concorrência.</p>
               <ul class="version-changes">
-                <li>Bancos selecionados permanecem visíveis ao alternar conexões ou reabrir a configuração.</li>
-                  <li>Perfis de arquivos usam uma única origem e são salvos independentemente dos bancos.</li>
-                  <li>Cada aba salva somente sua seção e mantém a janela de configurações aberta.</li>
-                  <li>Novos agendamentos são criados no editor atual com entradas limitadas ao domínio válido.</li>
+                <li>Planos combinam perfis de arquivos e conexões de bancos em execuções completas ou parciais claramente identificadas.</li>
+                  <li>Arquivos remotos usam SSH/SFTP e bancos MariaDB/MySQL podem gerar dumps compactados na VPS sem alterar a origem.</li>
+                  <li>Lease SQLite, lock por destino, ownership e manifestos reforçam concorrência, retenção e publicação íntegra.</li>
+                  <li>A interface principal ganhou maior área útil, resumo antes da execução e menus adaptativos mais claros.</li>
+                  <li>Novos perfis usam tentativas, intervalo, buffer e reserva de espaço com defaults operacionais revisados.</li>
               </ul>
             </div>
-            <aside class="current-download" aria-label="Download oficial da versão 1.1.1">
+            <aside class="current-download" aria-label="Download oficial da versão 1.2.0">
               <p class="download-platform">Windows 11 x64</p>
-              <a class="button button-primary version-download" href="https://github.com/Rodrigodil/backuphub/releases/download/v1.1.1/BackupHub-1.1.1-win-x64.zip" target="_blank" rel="noopener noreferrer" data-current-download>
-                <span>Baixar versão 1.1.1</span>
-                <small>BackupHub-1.1.1-win-x64.zip</small>
+              <a class="button button-primary version-download" href="https://github.com/Rodrigodil/backuphub/releases/download/v1.2.0/BackupHub-1.2.0-win-x64.zip" target="_blank" rel="noopener noreferrer" data-current-download>
+                <span>Baixar versão 1.2.0</span>
+                <small>BackupHub-1.2.0-win-x64.zip</small>
               </a>
               <dl class="artifact-details">
-                <div><dt>Tamanho</dt><dd>70,40 MiB (73.820.782 bytes)</dd></div>
-                <div><dt>SHA-256 do ZIP</dt><dd><code>0B59354653E971CACA133B631BFD0D2A78647B2C5033C80C7E5919CAFEA3A4F0</code></dd></div>
+                <div><dt>Tamanho</dt><dd>73,15 MiB (76.701.766 bytes)</dd></div>
+                <div><dt>SHA-256 do ZIP</dt><dd><code>26AD2CDE708D9C093FB30E285C45AAF22CE611909BD50BAC75CB7A852F4A04B4</code></dd></div>
               </dl>
-              <a class="release-details-link" href="https://github.com/Rodrigodil/backuphub/releases/tag/v1.1.1" target="_blank" rel="noopener noreferrer">Ver notas e hashes da release</a>
+              <a class="release-details-link" href="https://github.com/Rodrigodil/backuphub/releases/tag/v1.2.0" target="_blank" rel="noopener noreferrer">Ver notas e hashes da release</a>
             </aside>
           </div>
         </article>
@@ -106,6 +107,24 @@
           <p>Consulte o registro das versões anteriores e acompanhe a evolução dos recursos, correções e melhorias do BackupHub.</p>
         </div>
         <div class="version-history-grid">
+
+            <article class="version-card version-card-history" data-version="1.1.1">
+              <div class="version-card-heading">
+                <div>
+                  <p class="version-status">Versão histórica</p>
+                  <h2>BackupHub 1.1.1</h2>
+                </div>
+                <time datetime="2026-07-31">31 de julho de 2026</time>
+              </div>
+              <h3>Persistência por seção e configuração simplificada</h3>
+              <p>Correções de persistência e refinamentos dos perfis, bancos e agendamentos.</p>
+              <ul class="version-changes">
+                <li>Bancos selecionados permanecem visíveis ao alternar conexões ou reabrir a configuração.</li>
+                  <li>Perfis de arquivos usam uma única origem e são salvos independentemente dos bancos.</li>
+                  <li>Cada aba salva somente sua seção e mantém a janela de configurações aberta.</li>
+                  <li>Novos agendamentos são criados no editor atual com entradas limitadas ao domínio válido.</li>
+              </ul>
+            </article>
 
             <article class="version-card version-card-history" data-version="1.1.0">
               <div class="version-card-heading">
@@ -189,7 +208,7 @@
       </div>
       <div class="container footer-bottom">
         <p>BackupHub — projeto independente.</p>
-        <p>Histórico atualizado em <time datetime="2026-07-31">31 de julho de 2026</time>.</p>
+        <p>Histórico atualizado em <time datetime="2026-08-04">04 de agosto de 2026</time>.</p>
       </div>
     </footer>
   </body>

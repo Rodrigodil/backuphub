@@ -1,7 +1,27 @@
 {
-  "currentVersion": "1.1.1",
-  "updatedAt": "2026-07-31",
+  "currentVersion": "1.2.0",
+  "updatedAt": "2026-08-04",
   "versions": [
+    {
+      "version": "1.2.0",
+      "publishedAt": "2026-08-04",
+      "title": "Planos locais e remotos com integridade reforçada",
+      "summary": "Planos unificados, origens SSH/SFTP e proteção adicional para publicação, retenção e concorrência.",
+      "changes": [
+        "Planos combinam perfis de arquivos e conexões de bancos em execuções completas ou parciais claramente identificadas.",
+        "Arquivos remotos usam SSH/SFTP e bancos MariaDB/MySQL podem gerar dumps compactados na VPS sem alterar a origem.",
+        "Lease SQLite, lock por destino, ownership e manifestos reforçam concorrência, retenção e publicação íntegra.",
+        "A interface principal ganhou maior área útil, resumo antes da execução e menus adaptativos mais claros.",
+        "Novos perfis usam tentativas, intervalo, buffer e reserva de espaço com defaults operacionais revisados."
+      ],
+      "releaseUrl": "https://github.com/Rodrigodil/backuphub/releases/tag/v1.2.0",
+      "download": {
+        "file": "BackupHub-1.2.0-win-x64.zip",
+        "url": "https://github.com/Rodrigodil/backuphub/releases/download/v1.2.0/BackupHub-1.2.0-win-x64.zip",
+        "size": 76701761,
+        "sha256": "5D5DB67E7E508BCED21188FEDB57CC4D0BF1476C94D70DD837F7ED31FDA8E511"
+      }
+    },
     {
       "version": "1.1.1",
       "publishedAt": "2026-07-31",
@@ -12,14 +32,7 @@
         "Perfis de arquivos usam uma única origem e são salvos independentemente dos bancos.",
         "Cada aba salva somente sua seção e mantém a janela de configurações aberta.",
         "Novos agendamentos são criados no editor atual com entradas limitadas ao domínio válido."
-      ],
-      "releaseUrl": "https://github.com/Rodrigodil/backuphub/releases/tag/v1.1.1",
-      "download": {
-        "file": "BackupHub-1.1.1-win-x64.zip",
-        "url": "https://github.com/Rodrigodil/backuphub/releases/download/v1.1.1/BackupHub-1.1.1-win-x64.zip",
-        "size": 73820782,
-        "sha256": "0B59354653E971CACA133B631BFD0D2A78647B2C5033C80C7E5919CAFEA3A4F0"
-      }
+      ]
     },
     {
       "version": "1.1.0",
